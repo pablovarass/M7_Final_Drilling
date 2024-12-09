@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<section class="container mt-5">
+    <h2 class="text-center">Editar Laboratorio</h2>
+    <!-- Mostrar mensajes de Django -->
+    {% bootstrap_messages %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="{% url 'editar_laboratorio' laboratorio_id=laboratorio_id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success mt-3">Guardar Cambios</button>
+                <a href="{% url 'listar_laboratorios' %}" class="btn btn-secondary mt-3">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

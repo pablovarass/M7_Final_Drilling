@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<section class="container mt-5">
+    <h2>Lista de Todos los Productos</h2>
+    {% bootstrap_messages %}
+    <a href="{% url 'crear_producto' %}" class="btn btn-primary mb-3">Crear nuevo Producto</a>
+    {% if productos %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Laboratorio</th>
+                <th scope="col">Fecha de Fabricación</th>
+                <th scope="col">Precio Costo</th>
+                <th scope="col">Precio Venta</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for temp in productos %}
+            <tr>
+                <td>{{ temp.id }}</td>
+                <td>{{ temp.nombre }}</td>
+                <td>{{ temp.laboratorio.nombre }}</td>
+                <td>{{ temp.fecha_fabricacion }}</td>
+                <td>{{ temp.precio_costo }}</td>
+                <td>{{ temp.precio_venta }}</td>
+                <td>
+                    <a class="btn" href="{% url 'editar_producto' producto_id=temp.id %}" role="button" title="Editar">
+                        <i class="fa fa-edit text-primary"></i>
+                    </a>
+                    <a class="btn" href="{% url 'eliminar_producto' producto_id=temp.id %}" role="button" title="Eliminar">
+                        <i class="fa fa-trash text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7">No hay productos disponibles.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay productos disponibles.</p>
+    {% endif %}
+</section>
+{% endblock %}
+

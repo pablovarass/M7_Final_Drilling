@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<section class="container mt-5">
+    <h2>Lista de Laboratorios</h2>
+    {% bootstrap_messages %}
+    <a href="{% url 'crear_laboratorio' %}" class="btn btn-primary mb-3">Crear nuevo Laboratorio</a>
+    {% if laboratorios %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">País</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for laboratorio in laboratorios %}
+            <tr>
+                <td>{{ laboratorio.id }}</td>
+                <td>{{ laboratorio.nombre }}</td>
+                <td>{{ laboratorio.ciudad }}</td>
+                <td>{{ laboratorio.pais }}</td>
+                <td>
+                    <a class="btn" href="{% url 'editar_laboratorio' laboratorio.id %}" role="button" data-bs-toggle="tooltip" title="Editar">
+                        <i class="fa fa-edit text-primary"></i>
+                    </a>
+                    <a class="btn" href="{% url 'eliminar_laboratorio' laboratorio.id %}" role="button" data-bs-toggle="tooltip" title="Eliminar">
+                        <i class="fa fa-trash text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5">No hay laboratorios disponibles</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <!-- No hay laboratorios -->
+    <p>No hay laboratorios disponibles</p>
+    {% endif %}
+</section>
+{% endblock %}
+

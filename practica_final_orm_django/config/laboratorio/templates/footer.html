@@ -1,0 +1,55 @@
+{% load bootstrap5 %}
+{% block content %}
+<footer class="bg-dark text-white py-3">
+  <div class="container">
+    <div class="row">
+      <!-- Sección de información -->
+      <div class="col-md-4">
+        <h6>Acerca de Nosotros</h6>
+        <p>
+          Ofrecemos soluciones avanzadas para la gestión de laboratorios y productos, 
+          enfocándonos en eficiencia y simplicidad.
+        </p>
+      </div>
+
+      <!-- Navegación rápida -->
+      <div class="col-md-4">
+        <h6>Enlaces Rápidos</h6>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a href="{% url 'index' %}" class="nav-link text-white">Inicio</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-white">Preguntas Frecuentes</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-white">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="col-md-4">
+        <h6>Síguenos</h6>
+        <div class="d-flex">
+          <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <p class="mt-2">Síguenos en nuestras redes para conocer las últimas novedades.</p>
+      </div>
+    </div>
+
+    <!-- Barra inferior -->
+    <div class="row mt-3">
+      <div class="col text-center">
+        <p class="mb-0">© 2024 - Todos los derechos reservados | <a href="#" class="text-white text-decoration-underline">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+

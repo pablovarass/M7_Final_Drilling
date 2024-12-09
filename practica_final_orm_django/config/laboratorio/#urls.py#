@@ -1,0 +1,12 @@
+from django.urls import path, include
+from . import views
+
+urlpatterns = [
+    path('', listar_laboratorios, name='listar_laboratorios'),
+    path('crear/', crear_laboratorio, name='crear_laboratorio'),
+    path('editar/<int:pk>/', views.editar_laboratorio, name='editar_laboratorio'),
+    path('eliminar/<int:pk>/', views.eliminar_laboratorio, name='eliminar_laboratorio'),
+    path('registro/', views.registro, name='registro'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+]

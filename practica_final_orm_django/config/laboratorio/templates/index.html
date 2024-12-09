@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="bg-light py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Bienvenido a Nuestro Sistema de Gestión</h1>
+        <p class="text-center lead">
+            Simplifica la administración de laboratorios y productos con nuestra plataforma moderna y eficiente.
+        </p>
+        <div class="text-center mt-4">
+            <a href="{% url 'listar_laboratorios' %}" class="btn btn-primary btn-lg me-2">Ver Laboratorios</a>
+            <a href="{% url 'listar_productos' %}" class="btn btn-secondary btn-lg">Ver Productos</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Características Principales</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <i class="fas fa-flask fa-3x text-primary mb-3"></i>
+                <h5>Gestión de Laboratorios</h5>
+                <p>Administra información completa de tus laboratorios de manera sencilla.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-boxes fa-3x text-secondary mb-3"></i>
+                <h5>Control de Productos</h5>
+                <p>Registra, edita y consulta tus productos en tiempo real.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                <h5>Informes Detallados</h5>
+                <p>Accede a reportes claros y gráficos para tomar mejores decisiones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark text-white py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Comienza Hoy</h2>
+        <p class="lead">Explora la plataforma y optimiza la gestión de tu negocio.</p>
+        <a href="{% url 'registro' %}" class="btn btn-light btn-lg">Crear Cuenta</a>
+    </div>
+</section>
+{% endblock %}
+
